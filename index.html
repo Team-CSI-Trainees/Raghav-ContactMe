@@ -1,0 +1,78 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Contact form</title>
+</head>
+<body>
+     <section>
+        <img src="contact-img.jpg" alt="">
+        <div class="cont">
+            <h4>Contact Form</h4>
+            <form action="" onsubmit="return formvalidate()">
+
+                <div class="inputs">
+                   <p class="display" id="nametxt">Your Name</p>
+                    <input type="text" id="my" placeholder="Your Name">
+                    <p class="check" id="name-check"></p>
+                </div>
+
+                <div id="gender">
+                    <p id="gender-in">Gender:</p>
+                    <input type="radio" name="gender" class="gender">Male
+                    <input type="radio" name="gender" class="gender">Female
+                </div>
+                <p class="check" id="gender-check"></p>
+
+                <div class="inputs">
+                    <p id="branch-input">Choose your Branch</p>
+                    <select name="" id="select-branch">
+                        <option value="">CSE</option>
+                        <option value="">CSE(AI_ML)</option>
+                        <option value="">CSE(DS)</option>
+                        <option value="">IT</option>
+                        <option value="">ECE</option>
+                        <option value="">Mechanical</option>
+                        <option value="">Civil</option>
+                    </select>
+                </div>
+                
+                <div class="inputs">
+                    <p class="display" id="phone-in">Phone No.</p>
+                    <input type="number" id="phone" placeholder="Phone No.">
+                    <p class="check" id="phone-check"></p>
+                </div>
+                
+
+                <div class="inputs">
+                    <p class="display" id="email-in">Email Id</p>
+                    <input type="text" id="email" placeholder="Email Id">
+                    <p class="check" id="email-check"></p>
+                </div>
+                 
+                <div class="inputs">
+                    <p class="display" id="pswd-in">Password</p>
+                    <input type="password" id="pswd" placeholder="Password">
+                    <p class="check" id="pswd-check"></p>
+                </div>
+                 
+                <div class="inputs">
+                    <p class="display" id="c-pswd-in">Confirm Password</p>
+                    <input type="password" id="c-pswd" placeholder="Confirm Password">
+                    <p class="check" id="cpswd-check"></p>
+                </div>
+
+
+                 <div class="inputs">
+                    <input id="submit" type="submit">
+                 </div>
+                
+            </form>
+        </div>
+     </section>
+     <script src="script.js"></script>
+</body>
+</html>
