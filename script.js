@@ -58,8 +58,8 @@ function formvalidate(){
     if(pswd.value == ""){
          document.getElementById("pswd-check").innerHTML="**Enter Password";
          flag=0;}
-    else if(pswd.value.length<8){
-        document.getElementById("pswd-check").innerHTML="**Password must contain minimum 8 characters";
+    else if(pswd.value.length<5){
+        document.getElementById("pswd-check").innerHTML="**Password must contain minimum 5 characters";
         flag=0;}
         else
         document.getElementById("pswd-check").innerHTML="";
@@ -86,7 +86,7 @@ function formvalidate(){
 // validating phone number
 
     if(phone.value.length!=10){
-    document.getElementById("phone-check").innerHTML="**Invalid Phone No.";
+    document.getElementById("phone-check").innerHTML="**Invalid Phone Number";
     flag=0;}
     else
     document.getElementById("phone-check").innerHTML="";
@@ -107,13 +107,19 @@ function formvalidate(){
 // validating username
 
     if(my.value.length < 3){
-    document.getElementById("name-check").innerHTML="**Username requires min 3 char";
+    document.getElementById("name-check").innerHTML="**Username requires minimum 3 characters";
     flag=0;}
     else
     document.getElementById("name-check").innerHTML="";
 
     if(flag==0)
     return false;
-    else
-    return true;
+    else{
+        return true;
+    }
 }
+
+
+
+
+
