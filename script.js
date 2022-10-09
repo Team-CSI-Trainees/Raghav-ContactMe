@@ -6,6 +6,8 @@ let pswd = document.getElementById("pswd");
 let cpswd = document.getElementById("c-pswd");
 
 
+// calling a function
+
 my.addEventListener('input',function(){
     if(my.value =="")
     document.getElementById("nametxt").style.display='none';
@@ -45,28 +47,35 @@ cpswd.addEventListener('input',function(){
     document.getElementById("c-pswd-in").style.display='block';
 });
 
+// validation of the form starts
+
 
 function formvalidate(){ 
     let flag=1;
-    
+
+// validating password
+
+    if(pswd.value == ""){
+         document.getElementById("pswd-check").innerHTML="**Enter Password";
+         flag=0;}
+    else if(pswd.value.length<8){
+        document.getElementById("pswd-check").innerHTML="**Password must contain minimum 8 characters";
+        flag=0;}
+        else
+        document.getElementById("pswd-check").innerHTML="";
+
+// validating confirm password
+
     if(cpswd.value == ""){
         document.getElementById("cpswd-check").innerHTML="**Enter Password to confirm";
         flag=0;}
-        else
-        document.getElementById("cpswd-check").innerHTML="";
-    if(pswd.value == cpswd.value)
-       document.getElementById("cpswd-check").innerHTML="";
-        else{
-        document.getElementById("cpswd-check").innerHTML="**Password Not matched";
+    else if(pswd.value != cpswd.value){
+        document.getElementById("cpswd-check").innerHTML="**Password not matched";
         flag=0;}
-
-    
-
-    if(pswd.value == ""){
-    document.getElementById("pswd-check").innerHTML="**Enter Password";
-    flag=0;}
     else
-    document.getElementById("pswd-check").innerHTML="";
+       document.getElementById("cpswd-check").innerHTML="";
+
+// validating email
 
     if(email.value.length == ""){
     document.getElementById("email-check").innerHTML="**Invalid Email";
@@ -74,11 +83,15 @@ function formvalidate(){
     else
     document.getElementById("email-check").innerHTML="";
 
+// validating phone number
+
     if(phone.value.length!=10){
     document.getElementById("phone-check").innerHTML="**Invalid Phone No.";
     flag=0;}
     else
     document.getElementById("phone-check").innerHTML="";
+
+// validating gender
     
     for(let elm of gender){
     if(elm.checked == false)
@@ -91,7 +104,7 @@ function formvalidate(){
     break;}
     }
    
-
+// validating username
 
     if(my.value.length < 3){
     document.getElementById("name-check").innerHTML="**Username requires min 3 char";

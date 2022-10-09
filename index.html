@@ -9,17 +9,19 @@
 </head>
 <body>
      <section>
-        <img src="contact-img.jpg" alt="">
+        <!-- <img src="images/contact-img.jpg" alt=""> -->
         <div class="cont">
             <h4>Contact Form</h4>
             <form action="" onsubmit="return formvalidate()">
 
+                <!-- username section -->
                 <div class="inputs">
                    <p class="display" id="nametxt">Your Name</p>
                     <input type="text" id="my" placeholder="Your Name">
                     <p class="check" id="name-check"></p>
                 </div>
 
+                <!-- gender section -->
                 <div id="gender">
                     <p id="gender-in">Gender:</p>
                     <input type="radio" name="gender" class="gender">Male
@@ -27,6 +29,7 @@
                 </div>
                 <p class="check" id="gender-check"></p>
 
+                <!-- branch section -->
                 <div class="inputs">
                     <p id="branch-input">Choose your Branch</p>
                     <select name="" id="select-branch">
@@ -40,6 +43,7 @@
                     </select>
                 </div>
                 
+                <!-- phone number section -->
                 <div class="inputs">
                     <p class="display" id="phone-in">Phone No.</p>
                     <input type="number" id="phone" placeholder="Phone No.">
@@ -47,12 +51,14 @@
                 </div>
                 
 
+                <!-- email section -->
                 <div class="inputs">
                     <p class="display" id="email-in">Email Id</p>
-                    <input type="text" id="email" placeholder="Email Id">
+                    <input type="email" id="email" placeholder="Email Id">
                     <p class="check" id="email-check"></p>
                 </div>
                  
+                <!-- password section -->
                 <div class="inputs">
                     <p class="display" id="pswd-in">Password</p>
                     <input type="password" id="pswd" placeholder="Password">
