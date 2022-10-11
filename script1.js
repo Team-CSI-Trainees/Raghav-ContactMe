@@ -49,14 +49,29 @@ cpswd.addEventListener('input',function(){
 
 // validation of the form starting 
 
-let cusername= /^([a-zA-Z]{3,20})$/;
+let cusername= /^([a-zA-Z ]{3,20})$/;
 let cphone= /^[7-9]([0-9]){9}$/;
 let cemail= /^([a-zA-Z0-9\.-_]+)@([a-zA-Z0-9-]+).([a-z]{2,10})(.[a-z]{2,8})?$/;
-let cpassword= /^([a-zA-Z0-9_@]){8,20}$/;
+let cpassword= /^([a-zA-Z0-9_@]){2,20}$/;
 
-let flag=1;
+
 function formvalidate(){
-if(cusername.test(uname)){
+    let flag=1;
+
+    for(let elm of gender){
+        if(elm.checked == false)
+        {
+            document.getElementById("gender-check").innerHTML="**Please Select your gender";
+            flag=0; 
+        }
+        else{
+        document.getElementById("gender-check").innerHTML="";
+        flag=1;
+        break;}
+        
+        }
+    
+if(cusername.test(uname.value)){
     document.getElementById("name-check").innerHTML="";
 }
 else{
@@ -64,19 +79,9 @@ else{
     flag=0;
 }
 
-for(let elm of gender){
-    if(elm.checked == false)
-    {
-        document.getElementById("gender-check").innerHTML="**Please Select your gender";
-        flag=0;
-    }
-    else{
-    document.getElementById("gender-check").innerHTML="";
-    break;}
-    }
 
     
-if(cphone.test(phone)){
+if(cphone.test(phone.value)){
     document.getElementById("phone-check").innerHTML="";
 }
 else{
@@ -84,7 +89,7 @@ else{
     flag=0;
 }
 
-if(cemail.test(email)){
+if(cemail.test(email.value)){
     document.getElementById("email-check").innerHTML="";
 }
 else{
@@ -92,11 +97,11 @@ else{
     flag=0;
 }
 
-if(cpassword.test(pswd)){
+if(cpassword.test(pswd.value)){
     document.getElementById("pswd-check").innerHTML="";
 }
 else{
-    document.getElementById("pswd-check").innerHTML="**Password must contain 8 chracters with symbol '@'";
+    document.getElementById("pswd-check").innerHTML="**Password must contain 8 characters";
     flag=0;
 }
 
@@ -104,8 +109,26 @@ if(pswd.value!=cpswd.value){
     document.getElementById("cpswd-check").innerHTML="**Password not matched";
     flag=0;
 }
-if(flag==0)
-return false;
 else
-return true;
+     document.getElementById("cpswd-check").innerHTML="";
+if(flag==0)
+return false; 
+else
+return display();
 };
+
+function display(){
+    document.getElementById("layer").style.display="block";
+  
+    console.log(document.getElementById("name").value);
+    console.log(document.getElementById("select-branch").value);
+    console.log(document.querySelector('input[name="gender"]:checked').value);
+    console.log(document.getElementById("phone").value);
+    console.log(document.getElementById("email").value);
+
+    let close=document.getElementById("close");
+    close.addEventListener('click',function(){
+        return true;
+    });
+    return false;
+}
