@@ -47,16 +47,19 @@ cpswd.addEventListener('input',function(){
     document.getElementById("c-pswd-in").style.display='block';
 });
 
-// validation of the form starting 
+ // regex conditions
 
 let cusername= /^([a-zA-Z ]{3,20})$/;
 let cphone= /^[7-9]([0-9]){9}$/;
 let cemail= /^([a-zA-Z0-9\.-_]+)@([a-zA-Z0-9-]+).([a-z]{2,10})(.[a-z]{2,8})?$/;
-let cpassword= /^([a-zA-Z0-9_@]){2,20}$/;
+let cpassword= /^([a-zA-Z0-9_@]){8,20}$/;
 
+// validation of the form starting
 
 function formvalidate(){
     let flag=1;
+
+    //validating gender
 
     for(let elm of gender){
         if(elm.checked == false)
@@ -66,10 +69,11 @@ function formvalidate(){
         }
         else{
         document.getElementById("gender-check").innerHTML="";
-        flag=1;
         break;}
         
         }
+
+        //validating username
     
 if(cusername.test(uname.value)){
     document.getElementById("name-check").innerHTML="";
@@ -79,7 +83,7 @@ else{
     flag=0;
 }
 
-
+//validating phone number
     
 if(cphone.test(phone.value)){
     document.getElementById("phone-check").innerHTML="";
@@ -89,6 +93,8 @@ else{
     flag=0;
 }
 
+//validating email
+
 if(cemail.test(email.value)){
     document.getElementById("email-check").innerHTML="";
 }
@@ -97,6 +103,8 @@ else{
     flag=0;
 }
 
+//validating password
+
 if(cpassword.test(pswd.value)){
     document.getElementById("pswd-check").innerHTML="";
 }
@@ -104,6 +112,8 @@ else{
     document.getElementById("pswd-check").innerHTML="**Password must contain 8 characters";
     flag=0;
 }
+
+//validating confirm password
 
 if(pswd.value!=cpswd.value){
     document.getElementById("cpswd-check").innerHTML="**Password not matched";
@@ -116,6 +126,8 @@ return false;
 else
 return display();
 };
+
+//pop up displaying and printing on console
 
 function display(){
     document.getElementById("layer").style.display="block";
